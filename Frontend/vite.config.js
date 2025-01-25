@@ -1,10 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 3001, // Change this to your desired port
+  build: {
+    outDir: 'dist', // Ensure the output matches the Vercel config
   },
-})
+  server: {
+    port: 3001, // Local development port
+  },
+  preview: {
+    port: 5000, // Local production preview port
+  },
+});
